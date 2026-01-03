@@ -9,12 +9,24 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
+    "hero_VcYnft": {
+      "type": "hero",
+      "name": "Hero Page Template",
+      "settings": {
+        "hero_title": "This is hero section",
+        "hero_description": "Discover our amazing collection of premium products",
+        "button_text": "Shop Now",
+        "button_link": ""
+      }
+    },
+    "about_PiimiM": {
+      "type": "about",
+      "name": "About Template",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "hero_VcYnft",
+    "about_PiimiM"
   ]
 }
