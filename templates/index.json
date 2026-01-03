@@ -23,10 +23,16 @@
       "type": "about",
       "name": "About Template",
       "settings": {}
+    },
+    "feature_products_TAE7qa": {
+      "type": "feature_products",
+      "name": "Feature Products Template",
+      "settings": {}
     }
   },
   "order": [
     "hero_VcYnft",
-    "about_PiimiM"
+    "about_PiimiM",
+    "feature_products_TAE7qa"
   ]
 }
