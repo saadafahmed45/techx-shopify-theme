@@ -1,0 +1,192 @@
+{% comment %}
+  Welcome to Shopify theme development!
+{% endcomment %}
+
+<div class="hero_section">
+  <div class="hero_wrapper">
+    <div class="hero_content">
+      <h1>{{ section.settings.hero_title }}</h1>
+      <p>{{ section.settings.hero_description }}</p>
+      <a href="{{ section.settings.button_link }}" class="hero_button">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+
+    <div class="hero_img_">
+      {% if section.settings.hero_image %}
+        {{
+          section.settings.hero_image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            width: section.settings.hero_image.width,
+            height: section.settings.hero_image.height,
+            alt: section.settings.hero_image.alt
+          | default: section.settings.hero_title
+        }}
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .hero_section {
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+  }
+
+  .hero_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero_content {
+    padding: 20px;
+  }
+
+  .hero_content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero_content p {
+    font-size: 1.125rem;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 500px;
+  }
+
+  .hero_content button {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero_content button:hover {
+    background: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .hero_img_ {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero_img_ img {
+    width: 60%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .hero_img_:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    .hero_wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero_content h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero_content {
+      text-align: center;
+    }
+
+    .hero_content p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero_section {
+      padding: 40px 15px;
+    }
+
+    .hero_content h1 {
+      font-size: 2rem;
+    }
+
+    .hero_content p {
+      font-size: 1rem;
+    }
+
+    .hero_content button {
+      padding: 14px 32px;
+      font-size: 0.9rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "This is hero section"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Discover our amazing collection of premium products"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Page Template",
+      "category": "Hero pages"
+    }
+  ]
+}
+{% endschema %}
