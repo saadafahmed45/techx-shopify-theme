@@ -9,12 +9,31 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero_mYdLpB": {
+      "type": "hero",
+      "name": "Hero Page Template",
+      "settings": {
+        "background_color": "#f5f7fa",
+        "hero_title": "This is hero section",
+        "hero_description": "Discover our amazing collection of premium products",
+        "hero_image": "shopify://shop_images/pexels-userpascal-33080375.jpg",
+        "button_text": "Shop Now",
+        "button_link": ""
+      }
+    },
+    "about_inaKFd": {
+      "type": "about",
+      "name": "About Template",
+      "settings": {
+        "background_color": "#f5f7fa",
+        "about_title": "About us",
+        "about_des": "We are passionate about delivering high-quality products and creating seamless digital experiences. Our mission is to help businesses grow through innovative solutions and modern design.\n\nWith a dedicated team and years of experience, we ensure that every project is crafted with care, creativity, and a deep focus on user satisfactio",
+        "about_image": "shopify://shop_images/pexels-splitshire-1591.jpg"
+      }
     }
   },
   "order": [
-    "main"
+    "hero_mYdLpB",
+    "about_inaKFd"
   ]
 }
