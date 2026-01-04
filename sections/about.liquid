@@ -2,17 +2,91 @@
   Welcome to Shopify theme development!
 {% endcomment %}
 
-<div class="hero_section">
-  <h1>About Page</h1>
+<div class="about_section">
+  <div class="about_content">
+    <h1>{{ section.settings.about_title }}</h1>
+    <p>{{ section.settings.about_des }}</p>
+  </div>
+  {% comment %} img  {% endcomment %}
+  <div class="about_img">
+    {% if section.settings.about_image %}
+      {{
+        section.settings.about_image
+        | image_url: width: 1200
+        | image_tag:
+          loading: 'lazy',
+          width: section.settings.about_image.width,
+          height: section.settings.about_image.height,
+          alt: section.settings.about_image.alt
+        | default: section.settings.hero_title
+      }}
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
 </div>
 
-{% stylesheet %}
-{% endstylesheet %}
+<style>
+  .about_section {
+    padding: 50px 100px;
+   background: {{ section.settings.background_color }};
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+  }
+  .about_content {
+    width: 50%;
+  }
+
+  .about_content h1,
+  p {
+    width: 60%;
+    text-align: left;
+  }
+
+  .about_img {
+    width: 50%;
+    margin: 10px 30px;
+  }
+  .about_img img{
+  width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+</style>
 
 {% schema %}
 {
   "name": "About Page",
-  "settings": [],
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f5f7fa"
+    },
+    {
+      "type": "text",
+      "id": "about_title",
+      "label": "About Title",
+      "default": "About us"
+    },
+    {
+      "type": "textarea",
+      "id": "about_des",
+      "label": "About Des",
+      "default": "this is our about des"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_image",
+      "label": "About Image"
+    }
+  ],
   "presets": [
     {
       "name": "About Template",

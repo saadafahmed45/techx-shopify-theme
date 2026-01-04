@@ -1,0 +1,48 @@
+<section class="header_bar header_bar_{{ section.id }}">
+  <p>{{ section.settings.header_bar }}</p>
+</section>
+
+<style>
+  .header_bar_{{ section.id }} {
+    padding: 10px;
+    background: {{ section.settings.background_color }};
+  }
+
+  .header_bar_{{ section.id }} p {
+    color:  {{ section.settings.text_color }};
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+  }
+</style>
+{% schema %}
+{
+  "name": "Header Bar section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header_bar",
+      "label": "Header Bar Title",
+      "default": "offer 50%"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f5f7fa"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#f5f7fa"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Bar",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

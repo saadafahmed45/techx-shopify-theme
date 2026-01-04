@@ -9,30 +9,12 @@
  */
 {
   "sections": {
-    "hero_VcYnft": {
-      "type": "hero",
-      "name": "Hero Page Template",
-      "settings": {
-        "hero_title": "This is hero section",
-        "hero_description": "Discover our amazing collection of premium products",
-        "button_text": "Shop Now",
-        "button_link": ""
-      }
-    },
-    "about_PiimiM": {
-      "type": "about",
-      "name": "About Template",
-      "settings": {}
-    },
-    "feature_products_TAE7qa": {
-      "type": "feature_products",
-      "name": "Feature Products Template",
+    "main": {
+      "type": "hello-world",
       "settings": {}
     }
   },
   "order": [
-    "hero_VcYnft",
-    "about_PiimiM",
-    "feature_products_TAE7qa"
+    "main"
   ]
 }
