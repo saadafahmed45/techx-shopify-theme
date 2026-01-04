@@ -14,8 +14,8 @@
       "name": "Hero Page Template",
       "settings": {
         "background_color": "#f5f7fa",
-        "hero_title": "This is hero section",
-        "hero_description": "Discover our amazing collection of premium products",
+        "hero_title": "Comfort Meets Style",
+        "hero_description": "Discover our premium collection and elevate your everyday lifestyle.",
         "hero_image": "shopify://shop_images/pexels-userpascal-33080375.jpg",
         "button_text": "Shop Now",
         "button_link": ""
