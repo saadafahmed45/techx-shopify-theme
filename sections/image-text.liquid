@@ -1,0 +1,73 @@
+<div class="img_text_section">
+ <div class="img_text_container ">
+<div class="wrapper">
+      {% if section.settings.image != blank %}
+    <img src="{{ section.settings.image | img_url: 'master' }}" height="500" width="500" alt="{{ section.settings.heading }}">
+  {% endif %}
+
+  <div class="img_text_content">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link }}" class="img_text_btn">
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+
+ </div>
+</div>
+</div>
+</div>
+
+
+
+<style>
+.img_text_section {
+  padding: 50px 0;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+</style>
+{% schema %}
+{
+    "name": "image-text-section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        },
+        {
+            "type": "textarea",
+            "id": "subheading",
+            "label": "Subheading"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        }
+        ],
+
+
+    "presets": [
+        {
+            "name": "Image with Text",
+            "category": "Custom Sections"
+        }]
+}
+{% endschema %}
