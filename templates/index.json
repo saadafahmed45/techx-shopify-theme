@@ -36,7 +36,7 @@
       "name": "Featured Products",
       "settings": {
         "heading": "Featured Products",
-        "collection": "",
+        "collection": "premium-bluetooth-speakers",
         "products_to_show": 4
       }
     }
