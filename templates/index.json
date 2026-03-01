@@ -11,10 +11,39 @@
   "sections": {
     "main": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "heading": "Welcome to Our Store",
+        "subheading": "Discover amazing products today",
+        "button_text": "Shop Now",
+        "button_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_link": ""
+      }
+    },
+    "image_text_Vh6MCz": {
+      "type": "image-text",
+      "name": "Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/pexels-pixabay-164710.jpg",
+        "heading": "About Our Brand",
+        "subheading": "We believe shopping should be simple, inspiring, and trustworthy. Our mission is to provide high-quality products that combine style, comfort, and affordability. Every item in our store is carefully selected to ensure you get the best value and experience.",
+        "button_text": "Discover Now",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "feature_collection_BEWqX9": {
+      "type": "feature-collection",
+      "name": "Featured Products",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": "",
+        "products_to_show": 4
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_text_Vh6MCz",
+    "feature_collection_BEWqX9"
   ]
 }
