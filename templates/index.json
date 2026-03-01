@@ -12,11 +12,12 @@
     "main": {
       "type": "hero",
       "settings": {
-        "heading": "Welcome to Our Store",
-        "subheading": "Discover amazing products today",
+        "heading": "Wear Confidence. Own The Moment.",
+        "subheading": "Trend-forward fashion made for bold personalities. Upgrade your wardrobe today.",
+        "bg_image": "shopify://shop_images/Gemini_Generated_Image_ngktr1ngktr1ngkt_7386807f-34b2-4a1a-8ee7-10d4d5c8c6e0.png",
         "button_text": "Shop Now",
-        "button_color": "#000000",
-        "button_text_color": "#ffffff",
+        "button_color": "#FFFFFF",
+        "button_text_color": "#333333",
         "button_link": ""
       }
     },
