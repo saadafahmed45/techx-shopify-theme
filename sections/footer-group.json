@@ -14,7 +14,7 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "menu": "",
+        "menu": "main-menu-1",
         "show_payment_icons": true
       }
     }
