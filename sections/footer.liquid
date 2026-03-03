@@ -1,57 +1,77 @@
-<footer>
-  <div class="footer__copyright">
-    &copy;
-    {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
-  </div>
+<footer class="footer-section bg-dark text-light py-4">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+    <!-- Copyright -->
+    <div class="footer__copyright text-center text-md-start">
+      &copy; {{ 'now' | date: '%Y' }}
+      {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
+    </div>
 
-  <div class="footer__payment">
-    {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
+    <!-- Links -->
+    <div class="footer__links d-flex gap-3 flex-wrap justify-content-center">
+      {% for link in section.settings.menu.links %}
+      {{ link.title | link_to: link.url, class: "text-light text-decoration-none" }}
       {% endfor %}
-    {% endif %}
+    </div>
+
+    <!-- Payment icons -->
+    <div class="footer__payment d-flex gap-2 justify-content-center">
+      {% if section.settings.show_payment_icons %}
+      {% for type in shop.enabled_payment_types %}
+      {{ type | payment_type_svg_tag }}
+      {% endfor %}
+      {% endif %}
+    </div>
+
   </div>
 </footer>
 
 {% stylesheet %}
-  footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  footer a {
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  footer .footer__links,
-  footer .footer__payment {
-    display: flex;
-    gap: 1rem;
-  }
+.footer-section {
+background: #111;
+color: #f1f1f1;
+font-size: 14px;
+}
+
+.footer-section a {
+color: #f1f1f1;
+transition: 0.3s;
+}
+
+.footer-section a:hover {
+color: #ffdd00;
+text-decoration: underline;
+}
+
+.footer__payment svg {
+width: 40px;
+height: auto;
+}
+
+@media (max-width: 768px) {
+.footer-section .container {
+flex-direction: column;
+gap: 15px;
+text-align: center;
+}
+}
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "t:general.footer",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
-      "default": true
-    }
-  ]
+"name": "Modern Footer",
+"settings": [
+{
+"type": "link_list",
+"id": "menu",
+"label": "Menu Links"
+},
+{
+"type": "checkbox",
+"id": "show_payment_icons",
+"label": "Show Payment Icons",
+"default": true
+}
+]
 }
 {% endschema %}
