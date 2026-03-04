@@ -2,11 +2,13 @@
     <div class="collection-container">
 
         <div class="section-heading">
-            <h2>{{ section.settings.heading }}</h2>
+            <h2 class="size-{{ section.settings.heading_size }} text-{{ section.settings.heading_align }}">
+                {{ section.settings.heading }}
+            </h2>
         </div>
 
         <div class="collection-grid">
-            {% for block in section.blocks %}
+            {% for block in section.blocks limit: section.settings.Collections_to_show %}
             {% assign collection = block.settings.collection %}
             {% if collection != blank %}
             <div class="collection-card">
@@ -54,7 +56,7 @@ margin-bottom: 50px;
 }
 
 .section-heading h2 {
-font-size: 32px;
+/* font-size: 32px; */
 font-weight: 700;
 margin: 0;
 }
@@ -129,6 +131,40 @@ grid-template-columns: 1fr;
 "id": "heading",
 "label": "Section Heading",
 "default": "Shop by Collection"
+},
+
+
+{
+"type": "select",
+"id": "heading_size",
+"label": "Heading Size",
+"default": "lg",
+"options": [
+{ "value": "sm", "label": "Small" },
+{ "value": "md", "label": "Medium" },
+{ "value": "lg", "label": "Large" },
+{ "value": "xl", "label": "Extra Large" }
+]
+},
+{
+"type": "select",
+"id": "heading_align",
+"label": "Heading Alignment",
+"default": "center",
+"options": [
+{ "value": "left", "label": "Left" },
+{ "value": "center", "label": "Center" },
+{ "value": "right", "label": "Right" }
+]
+},
+{
+"type": "range",
+"id": "Collections_to_show",
+"label": "Collections to show",
+"min": 2,
+"max": 12,
+"step": 1,
+"default": 3
 }
 ],
 "blocks": [

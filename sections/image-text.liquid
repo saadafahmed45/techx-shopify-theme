@@ -1,164 +1,172 @@
 <div class="img-text-section">
-  <div class="img-text-container {% if section.settings.reverse %}reverse{% endif %}">
+  <div class=" container {% if section.settings.reverse %}reverse{% endif %}">
+    <div class="img-text-wrapper">
 
-    {% if section.settings.image != blank %}
-    <div class="img-box">
-      <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.heading }}"
-        loading="lazy">
+      {% if section.settings.image != blank %}
+      <div class="img-box">
+        <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.heading }}"
+          loading="lazy">
+      </div>
+
+      {%- else -%}
+      <div class="img-box">
+        {{ 'image-placeholder' | placeholder_svg_tag }}
+        {% endif %}
+
+
+        <div class="img-text-content">
+          <h2>{{ section.settings.heading }}</h2>
+
+          {% if section.settings.subheading != blank %}
+          <div class="subheading">
+            {{ section.settings.subheading }}
+          </div>
+          {% endif %}
+
+          {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="img-text-btn">
+            {{ section.settings.button_text }}
+          </a>
+          {% endif %}
+        </div>
+
+      </div>
     </div>
-    {% endif %}
-
-    <div class="img-text-content">
-      <h2>{{ section.settings.heading }}</h2>
-
-      {% if section.settings.subheading != blank %}
-      <p>{{ section.settings.subheading }}</p>
-      {% endif %}
-
-      {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="img-text-btn">
-        {{ section.settings.button_text }}
-      </a>
-      {% endif %}
-    </div>
-
   </div>
-</div>
 
-{% stylesheet %}
-.img-text-section {
-padding: 80px 20px;
-background: {{ section.settings.bg_color }};
-}
+  {% stylesheet %}
+  .img-text-section {
+  padding: 80px 20px;
+  background: {{ section.settings.bg_color }};
+  }
 
-.img-text-container {
-max-width: 1200px;
-margin: 0 auto;
-display: flex;
-align-items: center;
-gap: 60px;
-}
+  .img-text-wrapper {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  }
 
-.img-text-container.reverse {
-flex-direction: row-reverse;
-}
+  .img-text-wrapper.reverse {
+  flex-direction: row-reverse;
+  }
 
-.img-box {
-flex: 1;
-}
+  .img-box {
+  flex: 1;
+  }
 
-.img-box img {
-width: 100%;
-height: auto;
-border-radius: 12px;
-object-fit: cover;
-}
+  .img-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  }
 
-.img-text-content {
-flex: 1;
-display: flex;
-flex-direction: column;
-gap: 20px;
-}
+  .img-text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  }
 
-.img-text-content h2 {
-font-size: 34px;
-font-weight: 700;
-margin: 0;
-color: #111;
-}
+  .img-text-content h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+  }
 
-.img-text-content p {
-font-size: 16px;
-line-height: 1.7;
-color: #555;
-}
+  .img-text-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  }
 
-.img-text-btn {
-display: inline-block;
-padding: 12px 30px;
-background: #000;
-color: #fff;
-text-decoration: none;
-font-weight: 500;
-border-radius: 6px;
-transition: 0.3s ease;
-width: 200px;
-text-align: center;
-}
+  .img-text-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  width: 200px;
+  text-align: center;
+  }
 
-.img-text-btn:hover {
-background: #333;
-}
+  .img-text-btn:hover {
+  background: #333;
+  }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-.img-text-container {
-flex-direction: column;
-gap: 30px;
-text-align: center;
-}
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+  .img-text-wrapper {
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  }
 
-.img-text-container.reverse {
-flex-direction: column;
-}
+  .img-text-wrapper.reverse {
+  flex-direction: column;
+  }
 
-.img-text-content h2 {
-font-size: 26px;
-}
-}
-{% endstylesheet %}
+  .img-text-content h2 {
+  font-size: 26px;
+  }
+  }
+  {% endstylesheet %}
 
-{% schema %}
-{
-"name": "Image with Text Section",
-"settings": [
-{
-"type": "image_picker",
-"id": "image",
-"label": "Image"
-},
-{
-"type": "text",
-"id": "heading",
-"label": "Heading",
-"default": "Premium Collection"
-},
-{
-"type": "textarea",
-"id": "subheading",
-"label": "Subheading",
-"default": "Discover high-quality products crafted just for you."
-},
-{
-"type": "text",
-"id": "button_text",
-"label": "Button Text",
-"default": "Shop Now"
-},
-{
-"type": "url",
-"id": "button_link",
-"label": "Button Link"
-},
-{
-"type": "checkbox",
-"id": "reverse",
-"label": "Reverse Layout (Image Right)",
-"default": false
-},
-{
-"type": "color",
-"id": "bg_color",
-"label": "Background Color",
-"default": "#f9f9f9"
-}
-],
-"presets": [
-{
-"name": "Image with Text",
-"category": "Custom Sections"
-}
-]
-}
-{% endschema %}
+  {% schema %}
+  {
+  "name": "Image with Text Section",
+  "settings": [
+  {
+  "type": "image_picker",
+  "id": "image",
+  "label": "Image"
+  },
+  {
+  "type": "text",
+  "id": "heading",
+  "label": "Heading",
+  "default": "Premium Collection"
+  },
+  {
+  "type": "richtext",
+  "id": "subheading",
+  "label": "Subheading",
+  "default": "<p>Discover <strong>high-quality</strong> products crafted just for you.</p>"
+  },
+  {
+  "type": "text",
+  "id": "button_text",
+  "label": "Button Text",
+  "default": "Shop Now"
+  },
+  {
+  "type": "url",
+  "id": "button_link",
+  "label": "Button Link"
+  },
+  {
+  "type": "checkbox",
+  "id": "reverse",
+  "label": "Reverse Layout (Image Right)",
+  "default": false
+  },
+  {
+  "type": "color",
+  "id": "bg_color",
+  "label": "Background Color",
+  "default": "#f9f9f9"
+  }
+  ],
+  "presets": [
+  {
+  "name": "Image with Text",
+  "category": "Custom Sections"
+  }
+  ]
+  }
+  {% endschema %}

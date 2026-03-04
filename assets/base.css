@@ -1,0 +1,29 @@
+/* Dynamic Sizes */
+.size-sm {
+	font-size: 1.5rem;
+}
+
+.size-md {
+	font-size: 2rem;
+}
+
+.size-lg {
+	font-size: 2.5rem;
+}
+
+.size-xl {
+	font-size: 3rem;
+}
+
+/* Alignment Classes */
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}

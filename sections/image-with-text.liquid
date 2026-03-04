@@ -1,0 +1,42 @@
+<div class="image_with_text_section">
+    <div class="container">
+        <div class="image_with_text_wrapper">
+            <div class="image_with_text_image">
+                {% if section.settings.text_image != blank %}
+                <img src="{{ section.settings.text_image | image_url: width: 600 }}"
+                    alt="{{ section.settings.heading }}" loading="lazy">
+                {% else %}
+                {{ 'image-placeholder' | placeholder_svg_tag }}
+                {% endif %}
+            </div>
+            <div class="image_with_text_content">
+                <h2 class="size-{{ section.settings.heading_size }} text-{{ section.settings.heading_align }}">
+                    {{ section.settings.heading }}
+                </h2>
+                <p class="text-{{ section.settings.text_align }}">{{ section.settings.text }}</p>
+
+            </div>
+        </div>
+    </div>
+
+    {% schema %}
+    {
+    "name": "Image-With-Text",
+
+    "settings": [
+    {
+    "type": "image_picker",
+    "id": "text_image",
+    "label": "Image"
+    }
+    ],
+    "presets": [
+    {
+    "name": "Image-With-Text",
+    "category": "image-sections",
+    "settings": {
+    }
+    }
+    ]
+    }
+    {% endschema %}
