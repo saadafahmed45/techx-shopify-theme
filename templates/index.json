@@ -115,6 +115,16 @@
         "collection": "premium-bluetooth-speakers",
         "products_to_show": 4
       }
+    },
+    "richtext_VAw6q6": {
+      "type": "richtext",
+      "name": "Rich-Text",
+      "settings": {
+        "heading": "Rich Text Section",
+        "text": "<p>This is a rich text section. You can add any content here, including links, lists, and more.</p>",
+        "button_text": "Learn More",
+        "text_align": "center"
+      }
     }
   },
   "order": [
@@ -122,6 +132,7 @@
     "main",
     "collection_list_dWT63g",
     "image_text_Vh6MCz",
-    "feature_collection_BEWqX9"
+    "feature_collection_BEWqX9",
+    "richtext_VAw6q6"
   ]
 }
