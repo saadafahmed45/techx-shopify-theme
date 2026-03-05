@@ -1,116 +1,123 @@
 {% comment %}
-  This section is used in the product template to render product page with
-  media, content, and add-to-cart form.
+This section is used in the product template to render product page with
+media, content, and add-to-cart form.
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/product
+https://shopify.dev/docs/storefronts/themes/architecture/templates/product
 {% endcomment %}
-<div class="wrapper">
-  
-<div class="product_images">
-  {% for image in product.images %}
-    {% render 'image', class: 'product-image', image: image %}
-  {% endfor %}
-</div>
- <div class="content">
-  
-<div class="product-info">
-  <h1>{{ product.title }}</h1>
-  <p>{{ product.price | money }}</p>
-  <p>{{ product.description }}</p>
-</div>
+<div class="product_section">
+  <div class="container">
+    <div class="wrapper">
 
-<div class="product-form">
-  {% form 'product', product %}
-    {% assign current_variant = product.selected_or_first_available_variant %}
+      <div class="product_images">
+        {% for image in product.images %}
+        {% render 'image', class: 'product-image', image: image %}
+        {% endfor %}
+      </div>
+      <div class="content">
 
-    <select name="id">
-      {% for variant in product.variants %}
-        <option
-          value="{{ variant.id }}"
-          {% if variant == current_variant %}
-            selected="selected"
-          {% endif %}
-        >
-          {{ variant.title }} - {{ variant.price | money }}
-        </option>
-      {% endfor %}
-    </select>
+        <div class="product-info">
+          <h1>{{ product.title }}</h1>
+          <p>{{ product.price | money }}</p>
+          <p>{{ product.description }}</p>
+        </div>
 
-    <input type="text" name="quantity" min="1" value="1">
+        <div class="product-form">
+          {% form 'product', product %}
+          {% assign current_variant = product.selected_or_first_available_variant %}
 
-    <input type="submit" value="Add to cart">
-    {{ form | payment_button }}
-  {% endform %}
-</div>
+          <select name="id">
+            {% for variant in product.variants %}
+            <option value="{{ variant.id }}" {% if variant==current_variant %} selected="selected" {% endif %}>
+              {{ variant.title }} - {{ variant.price | money }}
+            </option>
+            {% endfor %}
+          </select>
 
-<style>
-.product-image {
-  width: 700px;
-  height: auto;
-}
-.wrapper {
-  display: flex;
-  gap: 40px;
-  padding: 50px 0;
-}
+          <input type="text" name="quantity" min="1" value="1">
 
-.content {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-.product-info h1 {
-  font-size: 2.5em;
-  margin: 0;
-}
-.product-form select,
-.product-form input[type="text"] {
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-.product-form input[type="submit"] {
-  padding: 15px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-} 
-@media screen and (max-width: 768px) {
-  .wrapper {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  .product_images,
-  .content {
-    width: 100%;
-  }
-}       @media screen and (max-width: 480px) {
-    .wrapper {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-.product-image {
-  width: 300px;
-  height: auto;
-}
-  
-}
+          <input type="submit" value="Add to cart">
+          {{ form | payment_button }}
+          {% endform %}
+        </div>
+      </div>
+    </div>
 
-</style>
- </div>
+    <style>
+      .product-image {
+        width: 700px;
+        height: auto;
+      }
+
+      .wrapper {
+        display: flex;
+        gap: 40px;
+        padding: 50px 0;
+      }
+
+      .content {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .product-info h1 {
+        font-size: 2.5em;
+        margin: 0;
+      }
+
+      .product-form select,
+      .product-form input[type="text"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      .product-form input[type="submit"] {
+        padding: 15px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 768px) {
+        .wrapper {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .product_images,
+        .content {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .wrapper {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .product-image {
+          width: 300px;
+          height: auto;
+        }
+
+      }
+    </style>
+  </div>
 </div>
 {% schema %}
 {
-  "name": "t:general.product",
-  "settings": [],
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  }
+"name": "t:general.product",
+"settings": [],
+"disabled_on": {
+"groups": ["header", "footer"]
+}
 }
 {% endschema %}
