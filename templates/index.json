@@ -8,43 +8,39 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "main": {
-      "type": "hero",
-      "settings": {
-        "heading": "Wear Confidence. Own The Moment.",
-        "subheading": "Trend-forward fashion made for bold personalities. Upgrade your wardrobe today.",
-        "bg_image": "shopify://shop_images/Gemini_Generated_Image_ek0c8dek0c8dek0c.png",
-        "button_text": "Shop Now",
-        "button_color": "#FFFFFF",
-        "button_text_color": "#333333",
-        "button_link": "shopify://collections/all"
-      }
-    },
-    "image_text_Vh6MCz": {
-      "type": "image-text",
-      "name": "Image with Text",
-      "settings": {
-        "image": "shopify://shop_images/pexels-pixabay-164710.jpg",
-        "heading": "About Our Brand",
-        "subheading": "We believe shopping should be simple, inspiring, and trustworthy. Our mission is to provide high-quality products that combine style, comfort, and affordability. Every item in our store is carefully selected to ensure you get the best value and experience.",
-        "button_text": "Discover Now",
-        "button_link": "shopify://collections/all"
-      }
-    },
-    "feature_collection_BEWqX9": {
-      "type": "feature-collection",
-      "name": "Featured Products",
-      "settings": {
-        "heading": "Featured Products",
-        "collection": "premium-bluetooth-speakers",
-        "products_to_show": 4
-      }
-    }
-  },
-  "order": [
-    "main",
-    "image_text_Vh6MCz",
-    "feature_collection_BEWqX9"
-  ]
+	"sections": {
+		"main": {
+			"type": "hero",
+			"settings": {
+				"heading": "Wear Confidence. Own The Moment.",
+				"subheading": "<p>Trend-forward fashion made for bold personalities. Upgrade your wardrobe today.</p>",
+				"bg_image": "shopify://shop_images/Gemini_Generated_Image_ek0c8dek0c8dek0c.png",
+				"button_text": "Shop Now",
+				"button_color": "#FFFFFF",
+				"button_text_color": "#333333",
+				"button_link": "shopify://collections/all"
+			}
+		},
+		"image_text_Vh6MCz": {
+			"type": "image-text",
+			"name": "Image with Text",
+			"settings": {
+				"image": "shopify://shop_images/pexels-pixabay-164710.jpg",
+				"heading": "About Our Brand",
+				"subheading": "<p>We believe shopping should be simple, inspiring, and trustworthy. Our mission is to provide high-quality products that combine style, comfort, and affordability. Every item in our store is carefully selected to ensure you get the best value and experience.</p>",
+				"button_text": "Discover Now",
+				"button_link": "shopify://collections/all"
+			}
+		},
+		"feature_collection_BEWqX9": {
+			"type": "feature-collection",
+			"name": "Featured Products",
+			"settings": {
+				"heading": "Featured Products",
+				"collection": "premium-bluetooth-speakers",
+				"products_to_show": 4
+			}
+		}
+	},
+	"order": ["main", "image_text_Vh6MCz", "feature_collection_BEWqX9"]
 }
