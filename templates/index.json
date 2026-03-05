@@ -56,19 +56,6 @@
         "button_link": "shopify://collections/all"
       }
     },
-    "image_text_Vh6MCz": {
-      "type": "image-text",
-      "name": "Image with Text",
-      "settings": {
-        "image": "shopify://shop_images/pexels-pixabay-164710.jpg",
-        "heading": "About Our Brand",
-        "subheading": "<p>We believe shopping should be simple, inspiring, and trustworthy. Our mission is to provide high-quality products that combine style, comfort, and affordability. Every item in our store is carefully selected to ensure you get the best value and experience.</p>",
-        "button_text": "Discover Now",
-        "button_link": "shopify://collections/all",
-        "reverse": false,
-        "bg_color": "#f9f9f9"
-      }
-    },
     "collection_list_dWT63g": {
       "type": "collection-list",
       "blocks": {
@@ -104,6 +91,19 @@
         "Collections_to_show": 3
       }
     },
+    "image_text_Vh6MCz": {
+      "type": "image-text",
+      "name": "Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/pexels-pixabay-164710.jpg",
+        "heading": "About Our Brand",
+        "subheading": "<p>We believe shopping should be simple, inspiring, and trustworthy. Our mission is to provide high-quality products that combine style, comfort, and affordability. Every item in our store is carefully selected to ensure you get the best value and experience.</p>",
+        "button_text": "Discover Now",
+        "button_link": "shopify://collections/all",
+        "reverse": false,
+        "bg_color": "#f9f9f9"
+      }
+    },
     "feature_collection_BEWqX9": {
       "type": "feature-collection",
       "name": "Featured Products",
@@ -120,8 +120,8 @@
   "order": [
     "image_slider_RwH3XV",
     "main",
-    "image_text_Vh6MCz",
     "collection_list_dWT63g",
+    "image_text_Vh6MCz",
     "feature_collection_BEWqX9"
   ]
 }
