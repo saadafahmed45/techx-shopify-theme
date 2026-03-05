@@ -69,6 +69,41 @@
         "bg_color": "#f9f9f9"
       }
     },
+    "collection_list_dWT63g": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_LqNeCb": {
+          "type": "collection",
+          "settings": {
+            "collection": "premium-gaming-headphones"
+          }
+        },
+        "collection_wFaUGr": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_Y7NDnR": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_LqNeCb",
+        "collection_wFaUGr",
+        "collection_Y7NDnR"
+      ],
+      "name": "Collection List",
+      "settings": {
+        "heading": "Shop by Collection",
+        "heading_size": "lg",
+        "heading_align": "center",
+        "Collections_to_show": 3
+      }
+    },
     "feature_collection_BEWqX9": {
       "type": "feature-collection",
       "name": "Featured Products",
@@ -86,6 +121,7 @@
     "image_slider_RwH3XV",
     "main",
     "image_text_Vh6MCz",
+    "collection_list_dWT63g",
     "feature_collection_BEWqX9"
   ]
 }
