@@ -31,22 +31,11 @@
             "button_text": "",
             "button_link": ""
           }
-        },
-        "slide_kFmyRA": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/pexels-userpascal-33080375.jpg",
-            "heading": "",
-            "subheading": "",
-            "button_text": "",
-            "button_link": ""
-          }
         }
       },
       "block_order": [
         "slide_EUMhAi",
-        "slide_dPGF9N",
-        "slide_kFmyRA"
+        "slide_dPGF9N"
       ],
       "name": "Hero Slider",
       "settings": {
