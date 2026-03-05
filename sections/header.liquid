@@ -1,48 +1,50 @@
 <header class="site-header">
-  <div class="header-wrapper">
+  <div class="container">
+    <div class="header-wrapper">
 
-    <!-- Logo -->
-    <div class="header__logo">
-      <a href="{{ routes.root_url }}">{{ shop.name }}</a>
-    </div>
+      <!-- Logo -->
+      <div class="header__logo">
+        <a href="{{ routes.root_url }}">{{ shop.name }}</a>
+      </div>
 
-    <!-- Desktop Menu -->
-    <nav class="header__menu">
-      {% for link in section.settings.menu.links %}
+      <!-- Desktop Menu -->
+      <nav class="header__menu">
+        {% for link in section.settings.menu.links %}
         <a href="{{ link.url }}">{{ link.title }}</a>
-      {% endfor %}
-    </nav>
+        {% endfor %}
+      </nav>
 
-    <!-- Icons -->
-    <div class="header__icons">
+      <!-- Icons -->
+      <div class="header__icons">
 
-      {% if shop.customer_accounts_enabled %}
+        {% if shop.customer_accounts_enabled %}
         <a href="{{ routes.account_url }}" class="icon-link">
           {{ 'icon-account.svg' | inline_asset_content }}
         </a>
-      {% endif %}
-
-      <a href="{{ routes.cart_url }}" class="icon-link cart-link">
-        {% if cart.item_count > 0 %}
-          <span class="cart-count">{{ cart.item_count }}</span>
         {% endif %}
-        {{ 'icon-cart.svg' | inline_asset_content }}
-      </a>
 
-      <!-- Mobile Toggle -->
-      <button class="menu-toggle" onclick="toggleMenu()">
-        ☰
-      </button>
+        <a href="{{ routes.cart_url }}" class="icon-link cart-link">
+          {% if cart.item_count > 0 %}
+          <span class="cart-count">{{ cart.item_count }}</span>
+          {% endif %}
+          {{ 'icon-cart.svg' | inline_asset_content }}
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="menu-toggle" onclick="toggleMenu()">
+          ☰
+        </button>
+
+      </div>
 
     </div>
 
-  </div>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-menu" id="mobileMenu">
-    {% for link in section.settings.menu.links %}
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+      {% for link in section.settings.menu.links %}
       <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
 </header>
 
@@ -54,122 +56,122 @@
 
 {% stylesheet %}
 .site-header {
-  position: sticky;
-  top: 0;
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  z-index: 999;
+position: sticky;
+top: 0;
+background: #ffffff;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+z-index: 999;
 }
 
 .header-wrapper {
-  /* max-width: 1200px; */
-  margin: auto;
-  padding: 0 20px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* max-width: 1200px; */
+margin: auto;
+padding: 0 20px;
+height: 70px;
+display: flex;
+align-items: center;
+justify-content: space-between;
 }
 
 .header__logo a {
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: none;
-  color: #111;
+font-size: 22px;
+font-weight: 700;
+text-decoration: none;
+color: #111;
 }
 
 .header__menu {
-  display: flex;
-  gap: 30px;
+display: flex;
+gap: 30px;
 }
 
 .header__menu a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: 0.3s;
+text-decoration: none;
+color: #333;
+font-weight: 500;
+transition: 0.3s;
 }
 
 .header__menu a:hover {
-  color: #000;
+color: #000;
 }
 
 .header__icons {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+display: flex;
+align-items: center;
+gap: 20px;
 }
 
 .icon-link {
-  position: relative;
-  display: flex;
+position: relative;
+display: flex;
 }
 
 .icon-link svg {
-  width: 22px;
-  height: 22px;
+width: 22px;
+height: 22px;
 }
 
 .cart-count {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  background: #000;
-  color: #fff;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 50%;
+position: absolute;
+top: -6px;
+right: -8px;
+background: #000;
+color: #fff;
+font-size: 12px;
+padding: 2px 6px;
+border-radius: 50%;
 }
 
 .menu-toggle {
-  display: none;
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
+display: none;
+font-size: 22px;
+background: none;
+border: none;
+cursor: pointer;
 }
 
 /* Mobile Drawer */
 .mobile-menu {
-  display: none;
-  flex-direction: column;
-  padding: 20px;
-  background: #fff;
-  border-top: 1px solid #eee;
+display: none;
+flex-direction: column;
+padding: 20px;
+background: #fff;
+border-top: 1px solid #eee;
 }
 
 .mobile-menu a {
-  padding: 10px 0;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+padding: 10px 0;
+text-decoration: none;
+color: #333;
+font-weight: 500;
 }
 
 .mobile-menu.active {
-  display: flex;
+display: flex;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .header__menu {
-    display: none;
-  }
+.header__menu {
+display: none;
+}
 
-  .menu-toggle {
-    display: block;
-  }
+.menu-toggle {
+display: block;
+}
 }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Custom Ecommerce Header",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Main Menu"
-    }
-  ]
+"name": "Custom Ecommerce Header",
+"settings": [
+{
+"type": "link_list",
+"id": "menu",
+"label": "Main Menu"
+}
+]
 }
 {% endschema %}
